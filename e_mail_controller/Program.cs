@@ -20,7 +20,8 @@ namespace e_mail_controller
             {
             
 
-            string[] turkceVeOzelKarakter=new string[] {"ö","ü","ı","ğ","ş","ü","ç","?","'","!","/","#","~" };
+            string[] turkceVeOzelKarakter=new string[] {"ö","ü","ı","ğ","ş","ü","ç"
+                ,"Ö","Ü","İ","Ş","Ğ","Ç","?","'","!","/","#","~" };
 
             olustur: Console.WriteLine("Kayıt olmak için e-mail adresinizi giriniz");
             string email = Console.ReadLine();
@@ -48,13 +49,18 @@ namespace e_mail_controller
                                     string password = Console.ReadLine();
                                     if (email != password)
                                     {
+                                        Console.BackgroundColor = ConsoleColor.Green;
+                                        Console.WriteLine("Başarılı");
+                                        Console.ResetColor();
                                         Console.WriteLine("E-mail adresi oluşturuluyor...");
                                         Thread.Sleep(1000);
                                         Console.WriteLine("e-mail: " + email);
                                         Console.WriteLine("şifre: " + password);
                                         Console.WriteLine("Bilgileriniz sisteme aktarılıyor...");
                                         Thread.Sleep(1000);
+                                        Console.BackgroundColor = ConsoleColor.Green;
                                         Console.WriteLine("Kayıt oluşturuldu.");
+                                        Console.ResetColor();
                                         hashMail.Add(email, password);
                                         Console.WriteLine("Yeni kayıt oluşturmak istiyor musunuz?e/h");
                                         string devamYeni = Console.ReadLine();
@@ -102,10 +108,10 @@ namespace e_mail_controller
                 }
 
             } while (!devam);
-            //şifre=0912
-            Console.WriteLine("Veri tabanına kayıtlı tüm mail adreslerini ve şifrelerini görmek için lütfen parolanızı giriniz.");
-            int parola = Convert.ToInt32(Console.ReadLine());
-devamparola: if (parola==0912)
+        //şifre=0912
+        devamparola: Console.WriteLine("Veri tabanına kayıtlı tüm mail adreslerini ve şifrelerini görmek için lütfen parolanızı giriniz.");
+            string parola = Console.ReadLine();
+             if (parola=="0912")
             {
                 Console.WriteLine("Mail adresleri ve şifreler aşağıda sıralanmıştır.");
                 foreach (var item in hashMail.Keys)
@@ -119,7 +125,8 @@ devamparola: if (parola==0912)
                 i++;
                 if (i==3)
                 {
-                    Console.WriteLine("Parola hakkınızı doldurdunuz. Sisteme erişiminiz engellenmiştir.");
+                    Console.WriteLine("Parola hakkınızı doldurdunuz. Sisteme erişiminiz engellenmiştir...");
+                    Thread.Sleep(3000);
                     Environment.Exit(0);
                 }
                 else
