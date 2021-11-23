@@ -52,15 +52,19 @@ namespace e_mail_controller
                                         Console.BackgroundColor = ConsoleColor.Green;
                                         Console.WriteLine("Başarılı");
                                         Console.ResetColor();
+
                                         Console.WriteLine("E-mail adresi oluşturuluyor...");
                                         Thread.Sleep(1000);
+
                                         Console.WriteLine("e-mail: " + email);
                                         Console.WriteLine("şifre: " + password);
                                         Console.WriteLine("Bilgileriniz sisteme aktarılıyor...");
                                         Thread.Sleep(1000);
+
                                         Console.BackgroundColor = ConsoleColor.Green;
                                         Console.WriteLine("Kayıt oluşturuldu.");
                                         Console.ResetColor();
+
                                         hashMail.Add(email, password);
                                         Console.WriteLine("Yeni kayıt oluşturmak istiyor musunuz?e/h");
                                         string devamYeni = Console.ReadLine();
@@ -136,8 +140,6 @@ namespace e_mail_controller
                 }
                 
             }
-
-
             Console.ReadLine();
         }
     }
